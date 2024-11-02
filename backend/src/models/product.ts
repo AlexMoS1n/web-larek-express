@@ -1,11 +1,11 @@
 import mongoose from 'mongoose';
 
-interface IImageProduct {
+export interface IImageProduct {
   fileName: string,
   originalName: string;
 }
 
-interface IProduct {
+export interface IProduct {
   title: string;
   image: IImageProduct;
   category: string;
