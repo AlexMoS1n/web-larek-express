@@ -9,12 +9,14 @@ const createOrder = async (req: Request, res: Response, next: NextFunction) => {
   const id = faker.string.uuid();
   try {
     const totalSum = await items.reduce(async (sum:number, item: string[]) => {
-      const product = await Product.findOneAndDelete({ _id: item });
+      let accum = await sum;
+      const product = await Product.findOne({ _id: item });
       if (product) {
         if (product.price === null) {
-          return sum;
+          return accum;
         }
-        return sum + product.price;
+        accum += product.price;
+        return accum;
       }
       const error = new MongooseError(messageBadRequestError.productNotFound);
       return next(error);
