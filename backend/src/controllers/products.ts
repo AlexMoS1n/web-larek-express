@@ -7,7 +7,7 @@ import DuplicateTitleError from '../errors/duplicate-title-error';
 import BadRequestError from '../errors/bad-request-error';
 
 export const getProducts = (_req: Request, res: Response, next: NextFunction) => Product.find({})
-  .then((products) => res.status(201).send({
+  .then((products) => res.send({
     items: products, total: products.length,
   }))
   .catch((err) => {

@@ -25,7 +25,7 @@ const createOrder = async (req: Request, res: Response, next: NextFunction) => {
       const error = new MongooseError(messageBadRequestError.incorrectOrderAmount);
       return next(error);
     }
-    return res.status(201).send({ id, total: totalSum });
+    return res.send({ id, total: totalSum });
   } catch (err) {
     const error = new MongooseError(`${messageBadRequestError.unknownCreateOrderError}`);
     return next(error);
