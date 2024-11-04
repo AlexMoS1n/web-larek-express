@@ -9,7 +9,8 @@ export enum messageDuplicateTitleError {
 
 export enum messageBadRequestError {
   productNotFound = 'Такого товара не существует',
-  productNotCreate = 'Нвозможно создать заказ',
+  productNotCreate = 'Нвозможно добавить товар',
+  orderNotCreate = 'Нвозможно создать заказ',
   incorrectOrderAmount = 'Неверная сумма заказа',
   unknownCreateOrderError = 'Неизвестная ошибка создания зазаказ'
 }
